@@ -16,15 +16,15 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Usuario {
+public class User {
 
 	private Long id;
-	private String nome;
+	private String name;
 	private String email;
-	private String senha;
-	private Date ultimoAcesso;
-	private byte foto;
-	private boolean ativo;
+	private String password;
+	private Date lastAcess;
+	private byte photo;
+	private boolean active;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,12 +38,12 @@ public class Usuario {
 
 	@NotEmpty
 	@Column(length = 100, nullable = false)
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Email
@@ -60,43 +60,43 @@ public class Usuario {
 
 	@NotEmpty
 	@Column(length = 30, nullable = false)
-	public String getSenha() {
-		return senha;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "ultimo_acesso")
-	public Date getUltimoAcesso() {
-		return ultimoAcesso;
+	@Column(name = "last_acess")
+	public Date getLastAcess() {
+		return lastAcess;
 	}
 
-	public void setUltimoAcesso(Date ultimoAcesso) {
-		this.ultimoAcesso = ultimoAcesso;
+	public void setLastAcess(Date lastAcess) {
+		this.lastAcess = lastAcess;
 	}
 
 	@Transient
-	public byte getFoto() {
-		return foto;
+	public byte getPhoto() {
+		return photo;
 	}
 
-	public void setFoto(byte foto) {
-		this.foto = foto;
+	public void setPhoto(byte photo) {
+		this.photo = photo;
 	}
 
-	public boolean isAtivo() {
-		return ativo;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 	@Transient
-	public boolean isNovo() {
+	public boolean isNew() {
 		return id == null;
 	}
 
@@ -116,7 +116,7 @@ public class Usuario {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		User other = (User) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
