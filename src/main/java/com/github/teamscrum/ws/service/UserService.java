@@ -22,7 +22,7 @@ public class UserService {
 		repository.save(user);
 	}
 	
-	public List<User> listAll() {
+	public List<User> findAll() {
 		return repository.findAll();
 	}
 	
