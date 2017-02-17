@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="TeamScrum"
+<html ng-app="app"
 	xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<base href="/"/>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,8 +16,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/font-awesome/css/font-awesome.min.css}" />
     
     <script th:src="@{/js/angular.min.js}"></script>
+    <script th:src="@{/js/angular-route.js}"></script>
     <script th:src="@{/js/app.js}"></script>
-    <script th:src="@{/js/userController.js}"></script>
+    <script th:src="@{/js/controller/userController.js}"></script>
     
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -215,7 +217,7 @@
                	<table class="table">
                		<tr>
                			<th>#</th>
-               			<th>Name</th>
+               			<th>Nome</th>
                			<th>Matrícula</th>
                			<th>E-mail</th>
                			<th>Ações</th>

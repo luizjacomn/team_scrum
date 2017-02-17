@@ -44,7 +44,7 @@ public class OrganizationService {
 		return repository.findAll();
 	}
 	
-	public Organization findById(Long id) {
+	public Organization findOne(Long id) {
 		Organization organization = repository.findOne(id);
 		if(organization == null) {
 			throw new ResourceNotFoundException("O Recurso nao existe!");

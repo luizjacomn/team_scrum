@@ -38,8 +38,8 @@ public class OrganizationController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Organization> findById(@PathVariable Long id) {
-		return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
+	public ResponseEntity<Organization> findOne(@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.findOne(id));
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)

@@ -22,7 +22,7 @@ public class User {
 	private String name;
 	private String email;
 	private String password;
-	private Date lastAcess;
+	private Date lastAccess;
 	private byte photo;
 	private boolean active;
 
@@ -59,7 +59,7 @@ public class User {
 	}
 
 	@NotEmpty
-	@Column(length = 30, nullable = false)
+	@Column(length = 32, nullable = false)
 	public String getPassword() {
 		return password;
 	}
@@ -69,13 +69,13 @@ public class User {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "last_acess")
-	public Date getLastAcess() {
-		return lastAcess;
+	@Column(name = "last_access")
+	public Date getLastAccess() {
+		return lastAccess;
 	}
 
-	public void setLastAcess(Date lastAcess) {
-		this.lastAcess = lastAcess;
+	public void setLastAccess(Date lastAccess) {
+		this.lastAccess = lastAccess;
 	}
 
 	@Transient
