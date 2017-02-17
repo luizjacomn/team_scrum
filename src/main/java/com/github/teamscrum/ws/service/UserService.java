@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.teamscrum.exception.RecursoNaoEncontradoException;
+import com.github.teamscrum.exception.ResourceNotFoundException;
 import com.github.teamscrum.ws.model.User;
 import com.github.teamscrum.ws.repository.UserRepository;
 
@@ -22,14 +22,14 @@ public class UserService {
 		repository.save(user);
 	}
 	
-	public List<User> listAll() {
+	public List<User> findAll() {
 		return repository.findAll();
 	}
 	
 	public User findOne(Long id) {
 		User user = repository.findOne(id);
 		if(user == null)
-			throw new RecursoNaoEncontradoException("User not found!");
+			throw new ResourceNotFoundException("User not found!");
 		
 		return user; 
 	}

@@ -34,12 +34,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<User>> listar() {
-		return ResponseEntity.status(HttpStatus.OK).body(service.listAll());
+	public ResponseEntity<List<User>> findAll() {
+		return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<User> buscar(@PathVariable Long id) {
+	public ResponseEntity<User> findOne(@PathVariable Long id) {
 		return ResponseEntity.status(HttpStatus.OK).body(service.findOne(id));
 	}
 	
