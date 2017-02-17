@@ -1,0 +1,24 @@
+<div>
+	<label>NOME:</label> <input type="text" ng-model="org.name" /> <input
+		type="submit" value="Salvar" ng-click="saveUpdate()" /> <input
+		type="submit" value="Cancelar" ng-click="cancel()" />
+	<hr />
+
+	<table border="1px">
+		<thead>
+			<tr>
+				<th>NOME</th>
+				<th>CIDADE</th>
+				<th>OPÇÕES</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="org in orgs">
+				<td>{{org.name}}</td>
+				<td>{{org.city}}</td>
+				<td><input type="submit" value="Editar"
+					ng-click="prepareUpdate(org)" /></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

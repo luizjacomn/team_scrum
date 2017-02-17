@@ -14,10 +14,10 @@ import java.util.regex.Pattern;
 public class CepUtil {
 
 	public static void main(String[] args) throws IOException {
-		buscarCep("62940000");
+		findCep("62940000");
 	}
 
-	public static Map<String, String> buscarCep(String cep) {
+	public static Map<String, String> findCep(String cep) {
 		Map<String, String> mapa = null;
 		String json = null;
 

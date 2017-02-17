@@ -1,9 +1,9 @@
 package com.github.teamscrum.exception;
 
-public class RecursoNaoEncontradoException extends RuntimeException {
+public class ResourceNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = -159739610582453231L;
 
-	public RecursoNaoEncontradoException(String msg) {
+	public ResourceNotFoundException(String msg) {
 		super(msg);
 	}
 }

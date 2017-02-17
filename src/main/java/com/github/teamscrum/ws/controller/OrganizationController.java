@@ -14,37 +14,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.github.teamscrum.ws.model.Organizacao;
-import com.github.teamscrum.ws.service.OrganizacaoService;
+import com.github.teamscrum.ws.model.Organization;
+import com.github.teamscrum.ws.service.OrganizationService;
 
 @RestController
-@RequestMapping("/organizacoes")
-public class OrganizacaoController {
+@RequestMapping("/organizations")
+public class OrganizationController {
 
 	@Autowired
-	private OrganizacaoService service;
+	private OrganizationService service;
 
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> salvar(@RequestBody Organizacao organizacao) {
-		organizacao = service.salvar(organizacao);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(organizacao.getId())
+	public ResponseEntity<Organization> save(@RequestBody Organization organization) {
+		organization = service.save(organization);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(organization.getId())
 				.toUri();
-		return ResponseEntity.created(uri).build();
+		return ResponseEntity.created(uri).body(organization);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Organizacao>> listar() {
-		return ResponseEntity.status(HttpStatus.OK).body(service.listar());
+	public ResponseEntity<List<Organization>> listAll() {
+		return ResponseEntity.status(HttpStatus.OK).body(service.listAll());
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Organizacao> buscar(@PathVariable Long id) {
-		return ResponseEntity.status(HttpStatus.OK).body(service.buscar(id));
+	public ResponseEntity<Organization> findById(@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
-	public ResponseEntity<Void> atualizar(@RequestBody Organizacao organizacao) {
-		service.atualizar(organizacao);
-		return ResponseEntity.noContent().build();
+	public ResponseEntity<Organization> update(@RequestBody Organization organization) {
+		organization = service.update(organization);
+		return ResponseEntity.status(200).body(organization);
 	}
 }
