@@ -25,11 +25,11 @@ public class OrganizationController {
 	private OrganizationService service;
 
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Organization> save(@RequestBody Organization organization) {
-		organization = service.save(organization);
+	public ResponseEntity<Void> save(@RequestBody Organization organization) {
+		organization = service.saveUpdate(organization);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(organization.getId())
 				.toUri();
-		return ResponseEntity.created(uri).body(organization);
+		return ResponseEntity.created(uri).build();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -43,8 +43,8 @@ public class OrganizationController {
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
-	public ResponseEntity<Organization> update(@RequestBody Organization organization) {
-		organization = service.update(organization);
-		return ResponseEntity.status(200).body(organization);
+	public ResponseEntity<Void> update(@RequestBody Organization organization) {
+		organization = service.saveUpdate(organization);
+		return ResponseEntity.noContent().build();
 	}
 }

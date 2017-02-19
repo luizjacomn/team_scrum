@@ -23,18 +23,6 @@ public class Organization {
 	
 	}
 	
-	public Organization(String name, String street, Integer number, String complement, String neighborhood, String city,
-			String state, String zipCode) {
-		this.name = name;
-		this.street = street;
-		this.number = number;
-		this.complement = complement;
-		this.neighborhood = neighborhood;
-		this.city = city;
-		this.state = state;
-		this.zipCode = zipCode;
-	}
-
 	// GETTERS AND SETTERS
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
