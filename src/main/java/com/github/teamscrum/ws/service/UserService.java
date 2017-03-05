@@ -1,5 +1,6 @@
 package com.github.teamscrum.ws.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,11 @@ public class UserService {
 	private UserRepository repository;
 	
 	public void save(User user) {
-		if(user.isNew())
+		if(user.isNew()) {
 			user.setActive(true);
-		
+			user.setRegistrationDate(new Date());
+		}
+			
 		repository.save(user);
 	}
 	

@@ -19,9 +19,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 
 	private Long id;
+	private String registration;
 	private String name;
 	private String email;
 	private String password;
+	private Date registrationDate;
 	private Date lastAccess;
 	private byte photo;
 	private boolean active;
@@ -35,7 +37,16 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	@Column(length = 20)
+	public String getRegistration() {
+		return registration;
+	}
 
+	public void setRegistration(String registration) {
+		this.registration = registration;
+	}
+	
 	@NotEmpty
 	@Column(length = 100, nullable = false)
 	public String getName() {
@@ -66,6 +77,16 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "registration_date", nullable = false)
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+	
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
