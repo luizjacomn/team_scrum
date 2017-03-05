@@ -11,7 +11,11 @@ app.config(function($routeProvider, $locationProvider) {
 		controller : 'organizationDetailController'
 	})
 	.when('/users', {
-		templateUrl : 'fragments/users/list.html',
+		templateUrl : 'fragments/users.html',
+		controller : 'userController'
+	})
+	.when('/user', {
+		templateUrl : 'fragments/user.html',
 		controller : 'userController'
 	})
 	.when('/addresses', {

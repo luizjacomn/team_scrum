@@ -1,15 +1,25 @@
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">
-			Usu√°rios <small></small>
+			Usu·rios <small></small>
 		</h1>
+		
 		<ol class="breadcrumb">
-			<li><i class="fa fa-dashboard"></i> <a href="/dashboard">Dashboard</a>
+			<li>
+				<i class="fa fa-dashboard"></i> 
+				<a href="/dashboard">Dashboard</a>
 			</li>
-			<li class="active"><i class="fa fa-users"></i> Usu√°rios</li>
+			<li class="active">
+				<i class="fa fa-users"></i> 
+				Usu·rios
+			</li>
 		</ol>
+		
+		<a href="/user">Novo Usu·rio</a>
 	</div>
 </div>
+
+<br />
 
 <table class="table">
 	<tr>
@@ -23,7 +33,7 @@
 	<tr ng-repeat="user in users">
 		<td>{{user.id}}</td>
 		<td>{{user.name}}</td>
-		<td></td>
+		<td>{{user.registration}}</td>
 		<td>{{user.email}}</td>
 		<td></td>
 	</tr>
